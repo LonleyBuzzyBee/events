@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Star Creek Events</title>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/about">About</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">Add an Event</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+<div class="content">
+  <h1>Star Creek Events</h1>
+  <div class="form">
+    <form  action="/update/{{event.id}}" method="POST">
+      <input type="text" placeholder="title" name="title" id="title" value="{{event.title}}">
+      <input type="text"  placeholder="description" name="description" id="description" value="{{event.description}}">
+      <input type="number"  placeholder="price" name="price" id="price" value="{{event.price}}">
+      <input type="text"  placeholder="img" name="img" id="img" value="{{event.img}}">
+      <input type="text"  placeholder="date" name="date" id="date" value="{{event.date}}">
+      <input type="submit" value="Update">
+    </form>
+  </div>
+</div>
+{% endblock %}
